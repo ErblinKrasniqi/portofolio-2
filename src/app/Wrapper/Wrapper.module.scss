@@ -2,3 +2,10 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
+
+.wrapperFlex{
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    margin-left: 3rem;
+}
