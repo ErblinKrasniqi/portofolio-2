@@ -24,10 +24,14 @@
     margin-bottom: 4rem;
     padding: 0.6rem 4rem;
     background-color: black;
-    border: 1px solid;
+    border: 1px solid $color-red;
+    box-shadow: 1px -2px 38px #fb4e4e;
     border-radius: 10px;
     color: white;
     font-weight: 500;
-    font-size: 0.9rem;
+    font-size: 0.97rem;
+  }
+  span {
+    color: $color-red;
   }
 }

@@ -2,6 +2,8 @@ import Navbar from "./components/Navbar/Navbar";
 import classes from "./page.module.scss";
 import Home from "./components/Home/Home";
 import Header from "./components/Header/Header";
+import Wrapper from "./Wrapper/Wrapper";
+import Code from "./components/Code/Code";
 import { Fragment } from "react";
 
 let headerText = {
@@ -16,6 +18,7 @@ const page = () => {
       <div className={classes.main}>
         <Home />
         <Header text={headerText} />
+        <Wrapper><Code /></Wrapper>
       </div>
     </Fragment>
   );
