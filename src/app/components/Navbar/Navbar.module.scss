@@ -1,0 +1,12 @@
+@mixin flex() {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.container_1 {
+    $flex()
+}
