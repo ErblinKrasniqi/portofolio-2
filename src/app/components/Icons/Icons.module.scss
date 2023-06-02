@@ -1,0 +1,17 @@
+@mixin flex($rem) {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: $rem;
+}
+
+.container_1 {
+  @include flex(4rem);
+  margin-bottom: 1rem
+}
+
+.container_2 {
+  @include flex(3.5rem);
+}

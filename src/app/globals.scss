@@ -1,10 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
-
 $color-base: black;
 $color-red: #fb4e4e;
 $color-gray: #888888;
 $color-blue: #1165b8;
 $color-icons: #848484;
+
 
 * {
   margin: 0;
@@ -14,4 +14,8 @@ $color-icons: #848484;
 body {
   background-color: black;
   color: white;
+}
+
+img {
+  width: 200px;
 }

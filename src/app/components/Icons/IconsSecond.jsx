@@ -1,4 +1,4 @@
-import classes from "./Navbar.module.scss";
+import classes from "./Icons.module.scss";
 
 const IconsSecond = () => {
   return (

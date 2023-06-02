@@ -1,12 +1,43 @@
-@mixin flex() {
-  width: 100%;
+@import "../../../ColorFonts";
+
+.container {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
+  padding: 1rem;
+  div {
+    display: flex;
+    align-items: center;
+    flex: 1;
+  }
 }
 
-.container_1 {
-    $flex()
+.logo {
+  margin-left: 3rem;
+  font-size: 0.8rem;
+}
+
+.links {
+  gap: 1.4rem;
+  justify-content: center;
+
+  h3 {
+    font-weight: normal;
+    color: $color-gray;
+    cursor: pointer;
+  }
+}
+
+.profile {
+  gap: 1rem;
+  justify-content: center;
+  cursor: pointer;
+  img {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+  }
+
+  h3 {
+    color: $color-gray;
+    font-weight: normal;
+  }
 }
