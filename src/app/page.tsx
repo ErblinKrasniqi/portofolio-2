@@ -6,6 +6,7 @@ import Header from "./components/Header/Header";
 import Wrapper from "./Wrapper/Wrapper";
 import WrapperLong from './Wrapper/WrapperLong';
 import WrapperFlex from "./Wrapper/WrapperFlex";
+import ApiSection from './components/ApiSection/ApiSection'
 import Card from "./components/Cards/Cards";
 import Code from "./components/Code/Code";
 import Line from "./components/Line/Line";
@@ -55,7 +56,7 @@ const page = () => {
         </Wrapper>
         <Line />
         <Header text={headerTextSecond} />
-        <WrapperLong ></WrapperLong>
+        <WrapperLong ><ApiSection /></WrapperLong>
       </div>
     </React.Fragment>
   );

@@ -1,19 +1,19 @@
-@import '../../../ColorFonts';
-.container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin-bottom: 5rem;
-    gap: 1rem;
-    h1{
-        font-size: 3.5rem;
-    }
-    p{
-        width: 60ch;
-        line-height: 1.8rem;
-        font-size: 1.2rem;
-        color: $color-gray;
-    }
+@import "../../../ColorFonts";
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 5rem;
+  gap: 1rem;
+  h1 {
+    font-size: 3.5rem;
+  }
+  p {
+    width: 60ch;
+    line-height: 1.8rem;
+    font-size: 1.2rem;
+    color: $color-gray;
+  }
 }
