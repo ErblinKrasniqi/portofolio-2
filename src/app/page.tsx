@@ -6,15 +6,20 @@ import Header from "./components/Header/Header";
 import Wrapper from "./Wrapper/Wrapper";
 import WrapperLong from "./Wrapper/WrapperLong";
 import WrapperFlex from "./Wrapper/WrapperFlex";
+import WrapperCards from "./Wrapper/WrapperCards";
 import ApiSection from "./components/ApiSection/ApiSection";
 import Card from "./components/Cards/Cards";
 import Code from "./components/Code/Code";
 import Line from "./components/Line/Line";
-import LineLong from './components/Line/LineLong'
+import LineLong from "./components/Line/LineLong";
 
 const headerText = {
   h1: "Skills and Academic Journey",
   p: "During my computer science journey, I've developed expertise in JavaScript, HTML, CSS, and frameworks like React and Redux",
+};
+
+const headerText2 = {
+  h1: "Skills and Academic Journey",
 };
 
 const headerTextSecond = {
@@ -60,7 +65,14 @@ const page = () => {
         <WrapperLong>
           <ApiSection />
           <LineLong />
+          <WrapperCards>
+
+            {cards.map((card, index) => (
+              <Card key={index} icon={card.icon} h1={card.h1} p={card.p} />
+            ))}
+          </WrapperCards>
         </WrapperLong>
+        <Header text={headerText2} />
       </div>
     </React.Fragment>
   );

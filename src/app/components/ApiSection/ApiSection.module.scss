@@ -7,9 +7,9 @@
   grid-template-rows: 2rem 1fr;
   border: 2px solid $color-gray;
   border-radius: 10px;
-  width: 551px;
-  height: 364px;
-  margin: 10rem 0; //change the distance
+  width: 431px;
+  height: 284px;
+  margin: 8rem 0; //change the distance
   &:nth-child(1){
     margin-top: 0;
   }
@@ -82,10 +82,10 @@
   }
   img {
     aspect-ratio: 16/9;
-    width: 90%;
+    width: 96%;
     object-fit: cover;
     object-position: center;
-    height: 8rem;
+    height: 6rem;
     border-radius: 10px;
   }
 }
@@ -93,7 +93,7 @@
 .contentSecond {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 9rem 11rem;
+  grid-template-rows: 7.7rem 7rem;
   .nav {
     display: flex;
     justify-content: center;
@@ -102,7 +102,7 @@
     img {
       grid-column: 1 / span 2;
       width: 95%;
-      height: 8rem;
+      height: 80%;
       border-radius: 10px;
       object-fit: cover;
     }
@@ -124,9 +124,9 @@
     display: flex;
     align-items: center;
     p{
-      font-size: 0.9rem;
+      font-size: 0.8rem;
       color: $color-gray;
-      line-height: 1.3rem;
+      line-height: 1.2rem;
       display: -webkit-box;
       -webkit-line-clamp: 5; /* Limit to 5 lines */
       -webkit-box-orient: vertical;
@@ -149,4 +149,9 @@
   .text{
 
   }
+}
+
+
+.WrapperCards{
+  
 }

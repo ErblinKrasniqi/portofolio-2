@@ -14,3 +14,10 @@
     display: grid;
     grid-template-columns: 1fr min-content 1fr;
 }
+
+.WrapperCards{
+    display: flex;
+    flex-direction: column;
+    gap: 18rem;
+    margin-left: 4rem;
+}
