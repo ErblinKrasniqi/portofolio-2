@@ -3,6 +3,7 @@
 // import getAPOD  from '../../api/nasa';
 import classes from "./ApiSection.module.scss";
 import Section from "./Section";
+import SectionSecond from "./SectionSecond";
 import Edges from "./Edges";
 
 const ApiSection = () => {
@@ -18,10 +19,24 @@ const ApiSection = () => {
   // }, []);
 
   return (
-    <div className={classes.container}>
-      <Edges />
-      <div className={classes.content}>
-        <Section url={"./profile.jpg"} text={"lorem"} />
+    <div className={classes.main}>
+      <div className={classes.container}>
+        <Edges />
+        <div className={classes.content}>
+          <Section url={"./profile.jpg"} text={"lorem"} />
+        </div>
+      </div>
+      <div className={classes.container}>
+        <Edges />
+        <div className={classes.contentSecond}>
+          <SectionSecond />
+        </div>
+      </div>
+      <div className={classes.container}>
+        <Edges />
+        <div className={`${classes.contentSecond} ${classes.contentThird}`}>
+          <SectionSecond />
+        </div>
       </div>
     </div>
   );

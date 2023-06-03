@@ -4,12 +4,13 @@ import classes from "./page.module.scss";
 import Home from "./components/Home/Home";
 import Header from "./components/Header/Header";
 import Wrapper from "./Wrapper/Wrapper";
-import WrapperLong from './Wrapper/WrapperLong';
+import WrapperLong from "./Wrapper/WrapperLong";
 import WrapperFlex from "./Wrapper/WrapperFlex";
-import ApiSection from './components/ApiSection/ApiSection'
+import ApiSection from "./components/ApiSection/ApiSection";
 import Card from "./components/Cards/Cards";
 import Code from "./components/Code/Code";
 import Line from "./components/Line/Line";
+import LineLong from './components/Line/LineLong'
 
 const headerText = {
   h1: "Skills and Academic Journey",
@@ -56,7 +57,10 @@ const page = () => {
         </Wrapper>
         <Line />
         <Header text={headerTextSecond} />
-        <WrapperLong ><ApiSection /></WrapperLong>
+        <WrapperLong>
+          <ApiSection />
+          <LineLong />
+        </WrapperLong>
       </div>
     </React.Fragment>
   );
