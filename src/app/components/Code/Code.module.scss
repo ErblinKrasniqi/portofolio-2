@@ -2,8 +2,9 @@
 
 .grid {
   display: grid;
-  grid-template-columns: min-content 1fr;
+  grid-template-columns: min-content min-content;
   grid-template-rows: min-content min-content;
+  margin: auto;
 }
 .container {
   display: flex;

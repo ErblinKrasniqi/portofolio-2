@@ -1,17 +1,20 @@
-import React from "react";
-import Navbar from "./components/Navbar/Navbar";
 import classes from "./page.module.scss";
-import Home from "./components/Home/Home";
-import Header from "./components/Header/Header";
+import React from "react";
 import Wrapper from "./Wrapper/Wrapper";
 import WrapperLong from "./Wrapper/WrapperLong";
 import WrapperFlex from "./Wrapper/WrapperFlex";
 import WrapperCards from "./Wrapper/WrapperCards";
+import Line from "./components/Line/Line";
+import LineLong from "./components/Line/LineLong";
+import Navbar from "./components/Navbar/Navbar";
+import Home from "./components/Home/Home";
+import Header from "./components/Header/Header";
 import ApiSection from "./components/ApiSection/ApiSection";
 import Card from "./components/Cards/Cards";
 import Code from "./components/Code/Code";
-import Line from "./components/Line/Line";
-import LineLong from "./components/Line/LineLong";
+import Globe from './components/Globe/Globe'
+import Demensional from "./components/Demensional/Demensional";
+import EndPage from "./components/EndPage/EndPage";
 
 const headerText = {
   h1: "Skills and Academic Journey",
@@ -73,6 +76,11 @@ const page = () => {
           </WrapperCards>
         </WrapperLong>
         <Header text={headerText2} />
+      <Wrapper>
+        <Globe />
+        <Demensional />
+      </Wrapper>
+      <EndPage />
       </div>
     </React.Fragment>
   );

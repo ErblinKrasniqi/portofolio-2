@@ -1,0 +1,20 @@
+@import '../../../ColorFonts';
+
+.container{
+    .pSecond{
+        color: $color-gray;
+        width: 50ch;
+
+    }
+    .pFirst{
+        margin: 1rem 0;
+        width: 55ch;
+    }
+}
+
+.cards{
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    gap: 2rem;
+}
