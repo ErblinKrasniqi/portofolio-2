@@ -18,3 +18,20 @@
     margin-top: 2rem;
     gap: 2rem;
 }
+
+@media (max-width: 700px) {
+    .container{
+        h1{
+            font-size: 1rem;
+        }
+        .pSecond{
+            color: $color-gray;
+            width: 100%;
+    
+        }
+        .pFirst{
+            margin: 1rem 0;
+            width: 100%;
+        }
+    }
+  }

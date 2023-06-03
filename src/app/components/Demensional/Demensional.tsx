@@ -1,9 +1,10 @@
-import Spline from '@splinetool/react-spline';
-import classes from './Demsnional.module.scss'
+import classes from "./Demsnional.module.scss";
+import Spline from "@splinetool/react-spline";
 
-export default function Demensional() {
+export default function Demsnional() {
   return (
-    <Spline className={classes.object} scene="https://prod.spline.design/llQl22tQtFNyAx6t/scene.splinecode" />
+    <div className={classes.object}>
+      <Spline scene="https://prod.spline.design/X0zNb474UFU7bmxe/scene.splinecode" />
+    </div>
   );
 }
-

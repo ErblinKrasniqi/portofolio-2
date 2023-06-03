@@ -27,3 +27,21 @@
     font-size: 1rem;
   }
 }
+
+@media (max-width: 700px) {
+  .container{
+    margin-top: 3rem;
+    img {
+      width: 1.9rem;
+    }
+    h1 {
+      font-size: 1.2rem;
+      margin: 0.7rem 0;
+    }
+    p {
+      width: 35ch;
+      line-height: 1.6rem;
+      font-size: 1rem;
+    }
+  }
+}

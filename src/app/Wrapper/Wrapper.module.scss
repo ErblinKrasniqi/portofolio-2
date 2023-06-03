@@ -21,3 +21,23 @@
     gap: 18rem;
     margin-left: 4rem;
 }
+
+@media (max-width: 700px) {
+    .wrapper{
+        display: flex;
+        flex-direction: column;
+    }
+    .wrapperFlex{
+        margin-left: 0;
+    }
+
+    .wrapperlong{
+        display: block;
+    }
+
+    .WrapperCards{
+        margin-left: 0;
+        gap: 10rem;
+        margin-bottom: 4rem;
+    }
+  }

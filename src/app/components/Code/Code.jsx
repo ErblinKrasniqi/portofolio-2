@@ -42,9 +42,7 @@ const Code = () => {
           </code>
         </pre>
       </div>
-      <div></div>
-      <div></div>
-      <div className={classes.container}>
+      <div className={`${classes.container} ${classes.containerSecond}`}>
         <div className={classes.numbers}>
           <h4>1</h4>
           <h4>2</h4>

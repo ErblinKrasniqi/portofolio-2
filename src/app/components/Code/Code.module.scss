@@ -40,4 +40,15 @@
   spang {
     color: green;
   }
+  .containerSecond{
+
+      grid-column: 2;
+
+  }
+}
+
+@media (max-width: 700px) {
+  .containerSecond {
+    display: none;
+  }
 }

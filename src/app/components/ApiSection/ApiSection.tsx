@@ -18,24 +18,34 @@ const ApiSection = () => {
   //   fetchAPOD();
   // }, []);
 
+  const data = {
+    image: "2.jpg",
+    text: "Proficient in creating responsive web designs, ensuring optimal user experiences across different devices and screen sizes with a mobile-first approach proficient in creating responsive web designs, ensuring optimal user experiences across different devices and screen sizes with a mobile-first approach",
+  };
+
+  const dataSecond = {
+    image: "3.jpg",
+    text: "Proficient in creating responsive web designs, ensuring optimal user experiences across different devices and screen sizes with a mobile-first approach proficient in creating responsive web designs, ensuring optimal user experiences across different devices and screen sizes with a mobile-first approach",
+  };
+
   return (
     <div className={classes.main}>
       <div className={classes.container}>
         <Edges />
         <div className={classes.content}>
-          <Section url={"./profile.jpg"} text={"lorem"} />
+          <Section url={data.image} text={data.text} />
         </div>
       </div>
       <div className={classes.container}>
         <Edges />
         <div className={classes.contentSecond}>
-          <SectionSecond />
+          <SectionSecond url={dataSecond.image} text={dataSecond.text} />
         </div>
       </div>
       <div className={classes.container}>
         <Edges />
         <div className={`${classes.contentSecond} ${classes.contentThird}`}>
-          <SectionSecond />
+          <SectionSecond url={dataSecond.image} text={dataSecond.text} />
         </div>
       </div>
     </div>
