@@ -41,3 +41,25 @@
     font-weight: normal;
   }
 }
+@media (max-width: 768px) {
+
+  .logo{
+    margin-left: 0;
+    font-size: 0.6rem;
+  }
+  .links{
+    gap: 0.4rem;
+    h3{
+      font-size: 0.8rem;
+    }
+  }
+  .profile{
+    display: none;
+    img{
+      display: none;
+    }
+    h3{
+      display: none;
+    }
+  }
+}
