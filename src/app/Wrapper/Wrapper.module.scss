@@ -9,3 +9,8 @@
     gap: 5rem;
     margin-left: 3rem;
 }
+
+.wrapperlong{
+    display: grid;
+    grid-template-columns: 1fr min-content 1fr;
+}

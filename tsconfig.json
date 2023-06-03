@@ -29,6 +29,6 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/app/components/Icons/Icons.jsx"
-  ],
+, "src/app/components/ApiSection/ApiSection.tsx"  ],
   "exclude": ["node_modules"]
 }

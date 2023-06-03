@@ -1,0 +1,33 @@
+@import '../../../ColorFonts';
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 7rem 0;
+    h4{
+        gap: 1rem;
+        letter-spacing: 4px;
+    }
+    .line{
+        height: 5rem;
+        width: 1px;
+        background-color: $color-blue;
+        margin-top: 1rem;
+    }
+
+    .number{
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: $color-blue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        h4{
+            letter-spacing: 0px;
+        }
+
+    }
+}

@@ -4,13 +4,20 @@ import classes from "./page.module.scss";
 import Home from "./components/Home/Home";
 import Header from "./components/Header/Header";
 import Wrapper from "./Wrapper/Wrapper";
+import WrapperLong from './Wrapper/WrapperLong';
 import WrapperFlex from "./Wrapper/WrapperFlex";
 import Card from "./components/Cards/Cards";
 import Code from "./components/Code/Code";
+import Line from "./components/Line/Line";
 
 const headerText = {
   h1: "Skills and Academic Journey",
   p: "During my computer science journey, I've developed expertise in JavaScript, HTML, CSS, and frameworks like React and Redux",
+};
+
+const headerTextSecond = {
+  h1: "Academic Background and Research",
+  p: "I am actively engaged in computer science research, exploring topics like machine learning and data analysis, contributing to the advancement of knowledge in the field.",
 };
 
 const cards = [
@@ -46,6 +53,9 @@ const page = () => {
             ))}
           </WrapperFlex>
         </Wrapper>
+        <Line />
+        <Header text={headerTextSecond} />
+        <WrapperLong ></WrapperLong>
       </div>
     </React.Fragment>
   );
