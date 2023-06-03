@@ -69,6 +69,10 @@
     font-size: 0.9rem;
     color: $color-gray;
     line-height: 1.3rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 5; /* Limit to 5 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
   img {
     aspect-ratio: 16/9;

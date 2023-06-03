@@ -1,36 +1,27 @@
 "use client";
-import { useState, useEffect } from "react";
-import axios from "axios";
+// import React, { useEffect, useState } from 'react';
+// import getAPOD  from '../../api/nasa';
 import classes from "./ApiSection.module.scss";
 import Section from "./Section";
 import Edges from "./Edges";
 
 const ApiSection = () => {
-  const [nasaData, setNasaData] = useState(null);
+  // const [apodData, setAPODData] = useState(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          "https://api.nasa.gov/planetary/apod?api_key= LxUuXQKn8a8LYbavZprFGrlb0NcWXZIIgYw2h1o9 "
-        );
-        setNasaData(response.data);
-      } catch (error) {
-        console.error("Error fetching NASA data:", error);
-      }
-    };
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   const fetchAPOD = async () => {
+  //     const data = await getAPOD();
+  //     setAPODData(data);
+  //   };
+
+  //   fetchAPOD();
+  // }, []);
 
   return (
     <div className={classes.container}>
       <Edges />
       <div className={classes.content}>
-        {nasaData ? (
-          <Section url={nasaData.url} text={nasaData.explanation} />
-        ) : (
-          <p>Loading...</p>
-        )}
+        <Section url={"./profile.jpg"} text={"lorem"} />
       </div>
     </div>
   );
