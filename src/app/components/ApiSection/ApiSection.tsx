@@ -1,4 +1,4 @@
-"use client";
+
 // import React, { useEffect, useState } from 'react';
 // import getAPOD  from '../../api/nasa';
 import classes from "./ApiSection.module.scss";

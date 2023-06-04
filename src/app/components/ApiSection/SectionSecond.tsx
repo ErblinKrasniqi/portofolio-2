@@ -1,5 +1,7 @@
+import React from "react";
 import classes from "./ApiSection.module.scss";
-const SectionSecond = ({ url, text }) => {
+
+const SectionSecond = ({ url, text }: { url: string; text: string }) => {
   return (
     <>
       <div className={classes.nav}>
