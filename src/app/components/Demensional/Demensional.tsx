@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import classes from "./Demsnional.module.scss";
 import Spline from "@splinetool/react-spline";
