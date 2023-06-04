@@ -15,6 +15,7 @@ import Code from "./components/Code/Code";
 import Globe from "./components/Globe/Globe";
 import Demensional from "./components/Demensional/Demensional";
 import EndPage from "./components/EndPage/EndPage";
+import Analytics from "./Analystics";
 
 const headerText = {
   h1: "Skills and Academic Journey",
@@ -69,6 +70,7 @@ const cardsSecond = [
 const page = () => {
   return (
     <React.Fragment>
+      <Analytics />
       <Navbar />
       <div className={classes.main}>
         <Home />
