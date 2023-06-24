@@ -28,7 +28,7 @@ console.log
       ],
       typeSpeed: 50, // Adjust the typing speed for the first component
       backSpeed: 60,
-      startDelay: 1000,
+      startDelay: 30,
       loop: true,
       loopCount: Infinity,
     };
@@ -50,7 +50,7 @@ message = "Cooking " + ingredients
       ],
       typeSpeed: 30, // Adjust the typing speed for the second component
       backSpeed: 60,
-      startDelay: 1000,
+      startDelay: 30,
       loop: true,
       loopCount: Infinity,
     };
