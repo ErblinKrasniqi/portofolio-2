@@ -5,26 +5,40 @@ const EndPage = () => {
       <div>
         <img src="code.svg" alt="" />
         <h2>
-          View my <a>Github</a>
+          View my{" "}
+          <a target="_blank" href="https://github.com/ErblinKrasniqi">
+            Github
+          </a>
         </h2>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus,
           porro unde. Lorem, ipsum dolor sit amet consectetur adipisicing elit.
           Quibusdam?
         </p>
-        <button>Link to GitHub</button>
+        <button>
+          <a target="_blank" href="https://github.com/ErblinKrasniqi">
+            Link to GitHub
+          </a>
+        </button>
       </div>
       <div>
         <img src="linkedin.svg" alt="" />
         <h2>
-          View my <a>Linkedin</a>
+          View my{" "}
+          <a target="_blank" href="https://www.linkedin.com/in/erblinkrasniqi/">
+            Linkedin
+          </a>
         </h2>
         <p>
           Everything you need to build your site exactly how you imagine, from
           automatic API handling to built-in image and performance
           optimizations.
         </p>
-        <button>Link to Linkedin</button>
+        <button>
+          <a target="_blank" href="https://www.linkedin.com/in/erblinkrasniqi/">
+            Link to LinkedIn
+          </a>
+        </button>
       </div>
       <div>
         <img src="email.svg" alt="" />
