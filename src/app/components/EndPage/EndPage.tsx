@@ -5,10 +5,7 @@ const EndPage = () => {
       <div>
         <img src="code.svg" alt="" />
         <h2>
-          View my{" "}
-          <a target="_blank" href="https://github.com/ErblinKrasniqi">
-            Github
-          </a>
+          View my <a href="https://github.com/ErblinKrasniqi">Github</a>
         </h2>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus,
@@ -16,18 +13,14 @@ const EndPage = () => {
           Quibusdam?
         </p>
         <button>
-          <a target="_blank" href="https://github.com/ErblinKrasniqi">
-            Link to GitHub
-          </a>
+          <a href="https://github.com/ErblinKrasniqi">Link to GitHub</a>
         </button>
       </div>
       <div>
         <img src="linkedin.svg" alt="" />
         <h2>
           View my{" "}
-          <a target="_blank" href="https://www.linkedin.com/in/erblinkrasniqi/">
-            Linkedin
-          </a>
+          <a href="https://www.linkedin.com/in/erblinkrasniqi/">Linkedin</a>
         </h2>
         <p>
           Everything you need to build your site exactly how you imagine, from
@@ -50,7 +43,12 @@ const EndPage = () => {
           porro unde. Lorem, ipsum dolor sit amet consectetur adipisicing elit.
           Quibusdam?
         </p>
-        <button>Link to Email</button>
+        <button>
+          {" "}
+          <a target="_blank" href="mailto:erblini.kr@gmail.com">
+            Link to email
+          </a>
+        </button>
       </div>
     </div>
   );
