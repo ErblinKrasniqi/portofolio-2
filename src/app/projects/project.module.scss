@@ -3,26 +3,84 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 80%;
-  height: 100%;
+  width: 90%; /* Keeps the content responsive */
+  max-width: 900px; /* Limit max width for large screens */
   margin: 0 auto;
+  padding: 2rem; /* Add generous padding for better spacing */
+  background-color: #000; /* Pitch-black background */
+  color: #fff; /* White text for maximum contrast */
 
   img {
     margin: 2rem 0;
-    width: 800px;
-    height: 500px;
-    aspect-ratio: 1/1;
+    width: 100%; /* Images scale to container size */
+    max-width: 900px; /* Prevent images from growing too large */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Smooth rounded corners */
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2); /* Add subtle light glow */
   }
 
   h1 {
-    margin: 0 0 1rem 0;
+    margin: 0 0 1.5rem 0; /* Add spacing below the heading */
+    font-size: 2.5rem; /* Larger font size for readability */
+    font-weight: bold; /* Emphasize the heading */
+    text-align: center;
+    color: #fff; /* Ensure the text is visible against the dark background */
   }
 
   p {
-    font-size: 20px;
+    font-size: 1.2rem; /* Increase font size for better readability */
+    line-height: 1.8; /* Improve text spacing */
+    text-align: justify;
+    color: #ddd; /* Softer white for better readability */
+    margin-bottom: 1.5rem; /* Space out paragraphs */
   }
+
   a {
-    color: hsl(189, 100%, 50%);
+    color: hsl(189, 85%, 65%); /* Bright cyan for better visibility */
     text-decoration: none;
+    font-weight: bold;
+
+    &:hover {
+      text-decoration: underline;
+      color: hsl(189, 90%, 75%); /* Slightly brighter on hover */
+    }
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main {
+    width: 95%; /* Stretch container on smaller screens */
+    padding: 1.5rem;
+
+    img {
+      width: 100%; /* Ensure images fit within smaller screens */
+    }
+
+    h1 {
+      font-size: 2rem; /* Scale down heading for tablets */
+    }
+
+    p {
+      font-size: 1.1rem; /* Slightly reduce font size for better fit */
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .main {
+    padding: 1rem;
+
+    img {
+      margin: 1.5rem 0; /* Adjust margins for compact devices */
+    }
+
+    h1 {
+      font-size: 1.8rem; /* Further scaling for small screens */
+    }
+
+    p {
+      font-size: 1rem; /* Compact font size for better fit */
+    }
   }
 }

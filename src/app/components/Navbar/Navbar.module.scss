@@ -8,6 +8,9 @@
     align-items: center;
     flex: 1;
   }
+  a {
+    text-decoration: none;
+  }
 }
 
 .logo {
@@ -42,23 +45,22 @@
   }
 }
 @media (max-width: 768px) {
-
-  .logo{
+  .logo {
     margin-left: 0;
     font-size: 0.6rem;
   }
-  .links{
+  .links {
     gap: 0.4rem;
-    h3{
+    h3 {
       font-size: 0.8rem;
     }
   }
-  .profile{
+  .profile {
     display: none;
-    img{
+    img {
       display: none;
     }
-    h3{
+    h3 {
       display: none;
     }
   }
