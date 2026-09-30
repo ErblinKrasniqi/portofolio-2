@@ -1,19 +1,89 @@
 @import "tailwindcss";
 
-/* Design tokens are defined during the design pass (see CLAUDE.md). */
+/*
+  Design tokens. Palette is built on green, the colour the eye finds most restful,
+  warmed with marigold. Pine replaces black for text.
+*/
 :root {
-  --background: #ffffff;
-  --foreground: #1a1a1a;
+  --paper: #eef2e8;
+  --mist: #f7f9f3;
+  --sage: #d3dfcb;
+  --moss: #466f55;
+  --pine: #1e3b2f;
+  --pine-soft: #4b6558;
+  --marigold: #f3b754;
+  --marigold-soft: #f8d693;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-paper: var(--paper);
+  --color-mist: var(--mist);
+  --color-sage: var(--sage);
+  --color-moss: var(--moss);
+  --color-pine: var(--pine);
+  --color-pine-soft: var(--pine-soft);
+  --color-marigold: var(--marigold);
+  --color-marigold-soft: var(--marigold-soft);
+
+  --font-display: var(--font-fraunces);
+  --font-body: var(--font-rounded);
+
+  /* Radius grows with the size of the thing it rounds. */
+  --radius-chip: 0.875rem;
+  --radius-block: 1.75rem;
+  --radius-panel: 3rem;
+}
+
+html {
+  background: var(--paper);
+  color: var(--pine);
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  font-family: var(--font-rounded), system-ui, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+/* Fraunces with its SOFT axis at maximum gives rounded, friendly serifs. */
+.font-display {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-variation-settings: "SOFT" 100, "WONK" 0;
+  font-optical-sizing: auto;
+}
+
+::selection {
+  background: var(--marigold);
+  color: var(--pine);
+}
+
+:focus-visible {
+  outline: 3px solid var(--marigold);
+  outline-offset: 3px;
+  border-radius: 0.5rem;
+}
+
+/* Hero: each chart line comes into focus, top to bottom, like finding the right lens. */
+@keyframes come-into-focus {
+  0% {
+    opacity: 0;
+    filter: blur(16px);
+    transform: scale(1.06);
+  }
+  60% {
+    opacity: 1;
+    filter: blur(2px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: none;
+  }
+}
+.focus-in {
+  animation: come-into-focus 1s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-delay: calc(var(--i, 0) * 170ms + 150ms);
 }
 
 /* Lenis */
@@ -33,6 +103,7 @@ html.lenis body {
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
+    animation-delay: 0s !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;

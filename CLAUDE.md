@@ -45,6 +45,22 @@ contact details, and whether to present as a person or under a studio name.
 - Performance counts as part of the design: next/image, next/font, no layout shift, animate
   only transform/opacity, lazy-load heavy media.
 
+## Design direction (v1, agreed direction: warm, round, easy on the eyes)
+
+- Concept: an eye exam, from the flagship eye-hospital project. The hero is an eye chart: giant "E"
+  (Erblin), lines shrinking with acuity marks 6/60 → 6/6, the 6/6 line links to contact. On load each
+  line comes into focus (blur → sharp, `.focus-in` in globals.css). That is the page's one orchestrated
+  moment; everything else moves only in response to the visitor (tabs, project rows, menu, eye logo).
+- Palette (tokens in globals.css): paper #EEF2E8, mist #F7F9F3, sage #D3DFCB, moss #466F55,
+  pine #1E3B2F (text, replaces black), marigold #F3B754 (warm accent, contact panel, focus ring).
+- Type: Fraunces with SOFT=100 (rounded serif) for display via `.font-display`; Nunito for body.
+  Sentence case everywhere, no eyebrows.
+- Shape: radius grows with size (chip 0.875rem, block 1.75rem, panel 3rem, controls fully round).
+- Case study app screens are HTML recreations in `app-screens.tsx` (placeholder until real screenshots).
+- Content: `src/content/site.ts` holds all copy in English and Albanian; `TODO` marks dummy data.
+  English is `/`, Albanian is `/sq` (two root layouts in route groups `(en)` and `(sq)`).
+- Tried and rejected: M PLUS Rounded 1c for body (ships hundreds of CJK font files, 364 preloads).
+
 ## Workflow
 
 1. `npm run dev`
