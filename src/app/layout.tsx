@@ -1,29 +1,20 @@
-import "./globals.scss";
-import { Inter } from "next/font/google";
-import GoogleAnalytics from "@/pages/Analytics";
-import Head from "next/head";
+import type { Metadata } from "next";
+import { SmoothScroll } from "@/components/smooth-scroll";
+import "./globals.css";
 
-import CookieBanner from "@/pages/CookieBanner";
+// Typefaces are chosen during the design pass (see CLAUDE.md) and loaded here via next/font.
 
-const inter = Inter({ subsets: ["latin"] });
-
-export const metadata = {
-  title: "Portofolio",
+export const metadata: Metadata = {
+  title: "Erblin Krasniqi",
+  description: "Full-stack web development studio",
 };
 
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en">
-      <Head>
-        <title>{metadata.title}</title>
-      </Head>
-      <GoogleAnalytics GA_MEASUREMENT_ID="G-LX9QRPGD20" />
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className="h-full antialiased">
+      <body className="min-h-full flex flex-col">
+        <SmoothScroll>{children}</SmoothScroll>
+      </body>
     </html>
   );
 }
