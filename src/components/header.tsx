@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { EyeMark } from "@/components/eye-mark";
-import type { Dict } from "@/content/site";
+import { BrandMark } from "@/components/brand-mark";
+import { company, type Dict } from "@/content/site";
 
 export function Header({ nav, langSwitch }: Pick<Dict, "nav" | "langSwitch">) {
   const [open, setOpen] = useState(false);
@@ -18,15 +18,15 @@ export function Header({ nav, langSwitch }: Pick<Dict, "nav" | "langSwitch">) {
   const links = [
     { href: "#work", label: nav.work },
     { href: "#services", label: nav.services },
-    { href: "#about", label: nav.about },
+    { href: "#studio", label: nav.studio },
   ];
 
   return (
     <header className="fixed inset-x-0 top-3 z-50 px-3 sm:top-4 sm:px-6">
       <div className="mx-auto flex max-w-[76rem] items-center justify-between gap-3 rounded-full bg-mist/85 p-1.5 shadow-[0_10px_30px_-14px_rgb(30_59_47/0.35)] ring-1 ring-pine/8 backdrop-blur-md">
         <a href="#top" className="flex items-center gap-2.5 rounded-full py-0.5 pr-3 pl-0.5">
-          <EyeMark className="size-10 shrink-0" />
-          <span className="font-display text-[1.15rem] font-semibold tracking-[-0.01em]">Erblin Krasniqi</span>
+          <BrandMark className="size-10 shrink-0" />
+          <span className="font-display text-[1.15rem] font-semibold tracking-[-0.01em]">{company.name}</span>
         </a>
 
         <nav aria-label="Main" className="hidden md:block">
@@ -52,7 +52,7 @@ export function Header({ nav, langSwitch }: Pick<Dict, "nav" | "langSwitch">) {
           </a>
           <a
             href="#contact"
-            className="hidden rounded-full bg-pine px-5 py-2 font-medium text-paper transition-colors hover:bg-moss md:inline-block"
+            className="hidden rounded-full bg-pine px-5 py-2 font-medium whitespace-nowrap text-paper transition-colors hover:bg-moss md:inline-block"
           >
             {nav.contact}
           </a>

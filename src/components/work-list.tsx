@@ -10,7 +10,7 @@ export function WorkList({ work }: Pick<Dict, "work">) {
   const reduce = useReducedMotion();
 
   return (
-    <ul className="mt-10 grid grid-cols-[minmax(0,1fr)] gap-3">
+    <ul className="mt-6 grid grid-cols-[minmax(0,1fr)] gap-3">
       {work.items.map((item, i) => {
         const isOpen = open === i;
         return (
@@ -18,7 +18,7 @@ export function WorkList({ work }: Pick<Dict, "work">) {
             key={item.name}
             className={`rounded-[1.75rem] transition-colors duration-300 ${isOpen ? "bg-mist" : "bg-mist/60 hover:bg-mist"}`}
           >
-            <h3>
+            <h4>
               <button
                 type="button"
                 aria-expanded={isOpen}
@@ -44,7 +44,7 @@ export function WorkList({ work }: Pick<Dict, "work">) {
                 </span>
                 <span className="sr-only">{isOpen ? work.close : work.open}</span>
               </button>
-            </h3>
+            </h4>
 
             <AnimatePresence initial={false}>
               {isOpen && (

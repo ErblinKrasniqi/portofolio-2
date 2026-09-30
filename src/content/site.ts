@@ -3,13 +3,22 @@
 
 export type Lang = "en" | "sq";
 
+export const company = {
+  name: "Krasniqi Studio", // TODO real company name
+  founder: "Erblin Krasniqi",
+  city: { en: "Pristina, Kosovo", sq: "Prishtinë, Kosovë" },
+};
+
 export const contact = {
   email: "hello@example.com", // TODO real email
   whatsapp: "38344000000", // TODO real number, international format without +
   phoneLabel: "+383 44 000 000", // TODO
   github: "https://github.com/ErblinKrasniqi",
-  linkedin: "https://www.linkedin.com/", // TODO profile URL
+  linkedin: "https://www.linkedin.com/", // TODO company page URL
 };
+
+export const stages = ["sketch", "design", "live"] as const;
+export type Stage = (typeof stages)[number];
 
 type Screen = "booking" | "day" | "file";
 
@@ -26,12 +35,50 @@ export type Dict = {
   htmlTitle: string;
   htmlDescription: string;
   skip: string;
-  nav: { work: string; services: string; about: string; contact: string; menu: string; close: string };
+  nav: { work: string; services: string; studio: string; contact: string; menu: string; close: string };
   langSwitch: { label: string; other: string; href: string };
   hero: {
-    lines: [string, string, string]; // the h1, one line per chart row
-    sub: [string, string];
-    tiny: string;
+    title: string;
+    sub: string;
+    primary: string;
+    secondary: string;
+    stagesLabel: string;
+    stages: Record<Stage, string>;
+    stageNote: string;
+    demoLabel: string;
+  };
+  demo: {
+    site: {
+      url: string;
+      brand: string;
+      links: string[];
+      cta: string;
+      title: string;
+      text: string;
+      button: string;
+      items: { name: string; price: string }[];
+      toast: string;
+    };
+    app: {
+      title: string;
+      subtitle: string;
+      items: { name: string; price: string; qty: number }[];
+      total: string;
+      totalValue: string;
+      send: string;
+      toast: string;
+    };
+  };
+  work: {
+    title: string;
+    intro: string;
+    moreTitle: string;
+    open: string;
+    close: string;
+    builtLabel: string;
+    stackLabel: string;
+    placeholder: string;
+    items: WorkItem[];
   };
   caseStudy: {
     title: string;
@@ -41,12 +88,33 @@ export type Dict = {
     tabs: Record<Screen, string>;
     features: { title: string; text: string }[];
   };
-  work: { title: string; intro: string; open: string; close: string; builtLabel: string; stackLabel: string; placeholder: string; items: WorkItem[] };
-  services: { title: string; items: { title: string; text: string }[] };
+  services: { title: string; intro: string; items: { title: string; text: string }[] };
   process: { title: string; steps: { title: string; text: string }[] };
-  about: { title: string; body: string[]; toolsLabel: string; tools: string[]; photoAlt: string };
-  contact: { title: string; text: string; email: string; whatsapp: string; orCall: string };
-  footer: { made: string; top: string };
+  studio: {
+    title: string;
+    body: string[];
+    reasons: { title: string; text: string }[];
+    toolsLabel: string;
+    tools: string[];
+    founderCaption: string;
+    photoAlt: string;
+  };
+  contact: {
+    title: string;
+    text: string;
+    typeLabel: string;
+    types: string[];
+    name: string;
+    email: string;
+    message: string;
+    submit: string;
+    note: string;
+    subject: string;
+    talk: string;
+    whatsapp: string;
+    call: string;
+  };
+  footer: { top: string };
   screens: {
     appName: string;
     booking: {
@@ -59,7 +127,12 @@ export type Dict = {
       timeLabel: string;
       confirm: string;
     };
-    day: { title: string; count: string; statuses: { in: string; waiting: string; done: string }; rows: { time: string; name: string; reason: string; status: "in" | "waiting" | "done" }[] };
+    day: {
+      title: string;
+      count: string;
+      statuses: { in: string; waiting: string; done: string };
+      rows: { time: string; name: string; reason: string; status: "in" | "waiting" | "done" }[];
+    };
     file: {
       name: string;
       meta: string;
@@ -75,49 +148,64 @@ export type Dict = {
   };
 };
 
-const doctors = ["Dr. Giulia Romano", "Dr. Marco Bianchi", "Dr. Ardita Shala"];
-export const screenDoctors = doctors;
+export const screenDoctors = ["Dr. Giulia Romano", "Dr. Marco Bianchi", "Dr. Ardita Shala"];
+
+const tools = ["TypeScript", "React", "Next.js", "Node.js", "PostgreSQL", "Tailwind CSS", "Vercel"];
 
 export const dict: Record<Lang, Dict> = {
   en: {
-    htmlTitle: "Erblin Krasniqi, websites and web apps",
-    htmlDescription:
-      "Full-stack developer in Pristina, Kosovo. I design and build websites and web apps for clinics, shops and growing teams.",
+    htmlTitle: `${company.name}, websites and web apps in Pristina`,
+    htmlDescription: `${company.name} designs and builds websites and web apps for clinics, restaurants, shops and growing teams in Kosovo and beyond.`,
     skip: "Skip to content",
-    nav: { work: "Work", services: "Services", about: "About", contact: "Contact", menu: "Menu", close: "Close" },
+    nav: { work: "Work", services: "Services", studio: "Studio", contact: "Start a project", menu: "Menu", close: "Close" },
     langSwitch: { label: "Shqip", other: "Kalo në shqip", href: "/sq" },
     hero: {
-      lines: ["Erblin Krasniqi", "builds websites and web apps", "that people enjoy using"],
-      sub: [
-        "For clinics, shops and growing teams in Kosovo and beyond.",
-        "Full-stack: design, front end, back end and hosting.",
-      ],
-      tiny: "If you can read this line, let’s talk about your project.",
+      title: "Websites and web apps that businesses run on.",
+      sub: `${company.name} is a design and development studio in Pristina. We take projects from the first sketch to a live product, then look after them.`,
+      primary: "Start a project",
+      secondary: "See our work",
+      stagesLabel: "Project stage",
+      stages: { sketch: "Sketch", design: "Design", live: "Live" },
+      stageNote: "Every project goes from a rough sketch to a live product. Try it.",
+      demoLabel: "A clinic website and a restaurant ordering app, shown at the selected stage.",
     },
-    caseStudy: {
-      title: "A patient platform for an Italian eye hospital in Kosovo",
-      intro:
-        "Patients book eye exams online in Albanian, Italian or English. Doctors see their day at a glance, and every prescription and exam lives in one patient file instead of paper folders.",
-      facts: [
-        { term: "My part", detail: "Design, front end, back end, hosting" }, // TODO confirm
-        { term: "Timeline", detail: "2025, four months" }, // TODO
-        { term: "Built with", detail: "Next.js, Node.js, PostgreSQL" }, // TODO
-      ],
-      tabsLabel: "App screens",
-      tabs: { booking: "Booking", day: "Doctor’s day", file: "Patient file" },
-      features: [
-        { title: "Booking in three languages", text: "Patients pick an exam, a doctor and a time without calling the front desk." },
-        { title: "A calmer front desk", text: "Check-ins, waiting times and no-shows are visible to everyone at once." },
-        { title: "One file per patient", text: "Prescriptions, eye pressure and notes from every visit, kept in order." },
-        { title: "Reminders that work", text: "SMS reminders the day before cut down on missed appointments." },
-      ],
+    demo: {
+      site: {
+        url: "dentalcare.example",
+        brand: "Dental Care",
+        links: ["Treatments", "Prices", "Contact"],
+        cta: "Book a visit",
+        title: "Healthy smiles for the whole family",
+        text: "Check-ups, whitening and braces in the centre of Pristina.",
+        button: "See free times",
+        items: [
+          { name: "Check-up", price: "€25" },
+          { name: "Whitening", price: "€120" },
+          { name: "Braces", price: "from €900" },
+        ],
+        toast: "New booking: Tuesday, 10:30",
+      },
+      app: {
+        title: "Table 4",
+        subtitle: "Order from your table",
+        items: [
+          { name: "Pizza margherita", price: "€6.50", qty: 1 },
+          { name: "Caesar salad", price: "€5.00", qty: 1 },
+          { name: "Lemonade", price: "€2.50", qty: 2 },
+        ],
+        total: "Total",
+        totalValue: "€16.50",
+        send: "Send order",
+        toast: "Order sent to the kitchen",
+      },
     },
     work: {
-      title: "More work",
-      intro: "Websites and web apps for businesses that needed something that just works.",
+      title: "Selected work",
+      intro: "Websites and web apps for clinics, restaurants, real estate agencies and warehouses.",
+      moreTitle: "More projects",
       open: "Show details",
       close: "Hide details",
-      builtLabel: "What I built",
+      builtLabel: "What we built",
       stackLabel: "Built with",
       placeholder: "Screenshots coming soon",
       items: [
@@ -156,41 +244,76 @@ export const dict: Record<Lang, Dict> = {
         },
       ],
     },
+    caseStudy: {
+      title: "A patient platform for an Italian eye hospital in Kosovo",
+      intro:
+        "Patients book eye exams online in Albanian, Italian or English. Doctors see their day at a glance, and every prescription and exam lives in one patient file instead of paper folders.",
+      facts: [
+        { term: "Client", detail: "Italian eye hospital, Pristina" }, // TODO name, if allowed
+        { term: "Our part", detail: "Design, front end, back end, hosting" }, // TODO confirm
+        { term: "Timeline", detail: "2025, four months" }, // TODO
+        { term: "Built with", detail: "Next.js, Node.js, PostgreSQL" }, // TODO
+      ],
+      tabsLabel: "App screens",
+      tabs: { booking: "Booking", day: "Doctor’s day", file: "Patient file" },
+      features: [
+        { title: "Booking in three languages", text: "Patients pick an exam, a doctor and a time without calling the front desk." },
+        { title: "A calmer front desk", text: "Check-ins, waiting times and no-shows are visible to everyone at once." },
+        { title: "One file per patient", text: "Prescriptions, eye pressure and notes from every visit, kept in order." },
+        { title: "Reminders that work", text: "SMS reminders the day before cut down on missed appointments." },
+      ],
+    },
     services: {
-      title: "What I can build for you",
+      title: "What we build",
+      intro: "One team for the whole job: design, development, hosting and the care that comes after.",
       items: [
-        { title: "Websites", text: "Fast, clear sites that tell people who you are and make it easy to get in touch." },
-        { title: "Web apps", text: "Booking systems, dashboards and internal tools, built around how your team already works." },
-        { title: "Care after launch", text: "Hosting, updates and fixes, so your site keeps running while you run your business." },
+        { title: "Websites", text: "Company, clinic and restaurant sites that are fast, clear and easy to update." },
+        { title: "Web apps", text: "Booking systems, customer portals and ordering apps, built around how your business works." },
+        { title: "Dashboards and internal tools", text: "Stock, sales and schedules: the numbers your team checks every day, in one place." },
+        { title: "Care after launch", text: "Hosting, updates, backups and fixes, with one team to call." },
       ],
     },
     process: {
-      title: "How a project goes",
+      title: "How we work",
       steps: [
-        { title: "We talk", text: "You tell me what you need. I ask a lot of questions." },
-        { title: "I plan", text: "A clear scope, a price and a timeline before any code." },
-        { title: "I build", text: "You see progress every week and can try it as it grows." },
-        { title: "We launch", text: "I put it live and stay around to look after it." },
+        { title: "We talk", text: "You tell us what you need. We ask a lot of questions." },
+        { title: "We plan", text: "A clear scope, a price and a timeline before any code." },
+        { title: "We build", text: "You see progress every week and can try it as it grows." },
+        { title: "We launch", text: "We put it live and stay around to look after it." },
       ],
     },
-    about: {
-      title: "Hi, I’m Erblin",
+    studio: {
+      title: "A small studio that stays with you",
       body: [
-        "I’m a full-stack developer based in Pristina. I like building things that make someone’s working day a little easier: a receptionist, a doctor, a shop owner.",
-        "I work in English, Albanian and Italian, and I take projects from the first conversation to the server they run on.", // TODO confirm languages
+        `${company.name} is a design and development studio in Pristina, founded by ${company.founder}, a full-stack developer.`,
+        "We keep the team small on purpose. You talk directly to the people who design and build your project, in Albanian, English or Italian.",
       ],
-      toolsLabel: "Tools I use every day",
-      tools: ["TypeScript", "React", "Next.js", "Node.js", "PostgreSQL", "Tailwind CSS", "Vercel"],
-      photoAlt: "Photo of Erblin Krasniqi",
+      reasons: [
+        { title: "One team, start to finish", text: "Design, development and hosting under one roof." },
+        { title: "Built to last", text: "Modern, tested code that is easy to grow." },
+        { title: "Here after launch", text: "We still pick up the phone once the invoice is paid." },
+      ],
+      toolsLabel: "Technology we use",
+      tools,
+      founderCaption: `${company.founder}, founder`,
+      photoAlt: `Photo of ${company.founder}`,
     },
     contact: {
-      title: "Tell me about your project",
-      text: "A short message is enough. I reply within one working day.",
-      email: "Email me",
+      title: "Start a project",
+      text: "Tell us what you need. We reply within one working day.",
+      typeLabel: "What do you need?",
+      types: ["Website", "Web app", "Dashboard", "Not sure yet"],
+      name: "Your name",
+      email: "Your email",
+      message: "Tell us about your project",
+      submit: "Send project details",
+      note: "This opens your email app with everything filled in.",
+      subject: "New project",
+      talk: "Prefer to talk?",
       whatsapp: "Message on WhatsApp",
-      orCall: "Or call",
+      call: "Call",
     },
-    footer: { made: "Designed and built by Erblin Krasniqi", top: "Back to top" },
+    footer: { top: "Back to top" },
     screens: {
       appName: "Patient portal",
       booking: {
@@ -231,44 +354,58 @@ export const dict: Record<Lang, Dict> = {
   },
 
   sq: {
-    htmlTitle: "Erblin Krasniqi, uebfaqe dhe aplikacione web",
-    htmlDescription:
-      "Zhvillues full-stack në Prishtinë. Dizajnoj dhe ndërtoj uebfaqe dhe aplikacione web për klinika, dyqane dhe ekipe në rritje.",
+    htmlTitle: `${company.name}, uebfaqe dhe aplikacione web në Prishtinë`,
+    htmlDescription: `${company.name} dizajnon dhe ndërton uebfaqe dhe aplikacione web për klinika, restorante, dyqane dhe ekipe në rritje, në Kosovë e më gjerë.`,
     skip: "Kalo te përmbajtja",
-    nav: { work: "Punët", services: "Shërbimet", about: "Rreth meje", contact: "Kontakti", menu: "Menyja", close: "Mbyll" },
+    nav: { work: "Punët", services: "Shërbimet", studio: "Studio", contact: "Nisni një projekt", menu: "Menyja", close: "Mbyll" },
     langSwitch: { label: "English", other: "Switch to English", href: "/" },
     hero: {
-      lines: ["Erblin Krasniqi", "ndërton uebfaqe dhe aplikacione", "që njerëzit i përdorin me qejf"],
-      sub: [
-        "Për klinika, dyqane dhe ekipe në rritje, në Kosovë e më gjerë.",
-        "Full-stack: dizajn, front end, back end dhe hosting.",
-      ],
-      tiny: "Nëse e lexoni këtë rresht, le të flasim për projektin tuaj.",
+      title: "Uebfaqe dhe aplikacione web mbi të cilat punojnë bizneset.",
+      sub: `${company.name} është studio dizajni dhe zhvillimi në Prishtinë. I çojmë projektet nga skica e parë deri te produkti live, dhe kujdesemi për to edhe më pas.`,
+      primary: "Nisni një projekt",
+      secondary: "Shikoni punët tona",
+      stagesLabel: "Faza e projektit",
+      stages: { sketch: "Skica", design: "Dizajni", live: "Live" },
+      stageNote: "Çdo projekt nis si skicë dhe përfundon si produkt live. Provojeni.",
+      demoLabel: "Një uebfaqe klinike dhe një aplikacion porosish për restorant, në fazën e zgjedhur.",
     },
-    caseStudy: {
-      title: "Platformë për pacientët e një spitali italian të syve në Kosovë",
-      intro:
-        "Pacientët rezervojnë kontrollin e syve online, në shqip, italisht ose anglisht. Mjekët e shohin ditën e tyre me një shikim, dhe çdo recetë e kontroll ruhet në një dosje të pacientit në vend të dosjeve prej letre.",
-      facts: [
-        { term: "Roli im", detail: "Dizajn, front end, back end, hosting" },
-        { term: "Kohëzgjatja", detail: "2025, katër muaj" },
-        { term: "Ndërtuar me", detail: "Next.js, Node.js, PostgreSQL" },
-      ],
-      tabsLabel: "Ekranet e aplikacionit",
-      tabs: { booking: "Rezervimi", day: "Dita e mjekut", file: "Dosja" },
-      features: [
-        { title: "Rezervim në tri gjuhë", text: "Pacientët zgjedhin kontrollin, mjekun dhe orarin pa telefonuar në recepsion." },
-        { title: "Recepsion më i qetë", text: "Paraqitjet, pritjet dhe mungesat shihen nga të gjithë njëkohësisht." },
-        { title: "Një dosje për çdo pacient", text: "Recetat, presioni i syrit dhe shënimet nga çdo vizitë, të renditura." },
-        { title: "Kujtesa që funksionojnë", text: "Mesazhet SMS një ditë më parë i ulin terminet e humbura." },
-      ],
+    demo: {
+      site: {
+        url: "klinikadentare.example",
+        brand: "Klinika Dentare",
+        links: ["Trajtimet", "Çmimet", "Kontakti"],
+        cta: "Rezervo vizitë",
+        title: "Buzëqeshje të shëndetshme për gjithë familjen",
+        text: "Kontrolle, zbardhje dhe aparate dentare në qendër të Prishtinës.",
+        button: "Shiko oraret e lira",
+        items: [
+          { name: "Kontrolli", price: "€25" },
+          { name: "Zbardhja", price: "€120" },
+          { name: "Aparati", price: "nga €900" },
+        ],
+        toast: "Rezervim i ri: e martë, 10:30",
+      },
+      app: {
+        title: "Tavolina 4",
+        subtitle: "Porosisni nga tavolina",
+        items: [
+          { name: "Pica margarita", price: "€6.50", qty: 1 },
+          { name: "Sallatë Cezar", price: "€5.00", qty: 1 },
+          { name: "Limonadë", price: "€2.50", qty: 2 },
+        ],
+        total: "Gjithsej",
+        totalValue: "€16.50",
+        send: "Dërgo porosinë",
+        toast: "Porosia shkoi në kuzhinë",
+      },
     },
     work: {
-      title: "Punë të tjera",
-      intro: "Uebfaqe dhe aplikacione për biznese që kishin nevojë për diçka që thjesht funksionon.",
+      title: "Punë të zgjedhura",
+      intro: "Uebfaqe dhe aplikacione web për klinika, restorante, agjenci patundshmërish dhe depo.",
+      moreTitle: "Projekte të tjera",
       open: "Shfaq detajet",
       close: "Fshih detajet",
-      builtLabel: "Çfarë ndërtova",
+      builtLabel: "Çfarë ndërtuam",
       stackLabel: "Ndërtuar me",
       placeholder: "Pamjet vijnë së shpejti",
       items: [
@@ -306,41 +443,76 @@ export const dict: Record<Lang, Dict> = {
         },
       ],
     },
+    caseStudy: {
+      title: "Platformë për pacientët e një spitali italian të syve në Kosovë",
+      intro:
+        "Pacientët rezervojnë kontrollin e syve online, në shqip, italisht ose anglisht. Mjekët e shohin ditën e tyre me një shikim, dhe çdo recetë e kontroll ruhet në një dosje të pacientit në vend të dosjeve prej letre.",
+      facts: [
+        { term: "Klienti", detail: "Spital italian i syve, Prishtinë" },
+        { term: "Pjesa jonë", detail: "Dizajn, front end, back end, hosting" },
+        { term: "Kohëzgjatja", detail: "2025, katër muaj" },
+        { term: "Ndërtuar me", detail: "Next.js, Node.js, PostgreSQL" },
+      ],
+      tabsLabel: "Ekranet e aplikacionit",
+      tabs: { booking: "Rezervimi", day: "Dita e mjekut", file: "Dosja" },
+      features: [
+        { title: "Rezervim në tri gjuhë", text: "Pacientët zgjedhin kontrollin, mjekun dhe orarin pa telefonuar në recepsion." },
+        { title: "Recepsion më i qetë", text: "Paraqitjet, pritjet dhe mungesat shihen nga të gjithë njëkohësisht." },
+        { title: "Një dosje për çdo pacient", text: "Recetat, presioni i syrit dhe shënimet nga çdo vizitë, të renditura." },
+        { title: "Kujtesa që funksionojnë", text: "Mesazhet SMS një ditë më parë i ulin terminet e humbura." },
+      ],
+    },
     services: {
-      title: "Çfarë mund të ndërtoj për ju",
+      title: "Çfarë ndërtojmë",
+      intro: "Një ekip për gjithë punën: dizajn, zhvillim, hosting dhe kujdesin që vjen më pas.",
       items: [
-        { title: "Uebfaqe", text: "Faqe të shpejta e të qarta që tregojnë kush jeni dhe e bëjnë të lehtë kontaktin." },
-        { title: "Aplikacione web", text: "Sisteme rezervimi, panele dhe mjete të brendshme, sipas mënyrës si punon ekipi juaj." },
-        { title: "Kujdes pas lansimit", text: "Hosting, përditësime dhe rregullime, që faqja të punojë ndërsa ju merreni me biznesin." },
+        { title: "Uebfaqe", text: "Faqe për kompani, klinika dhe restorante: të shpejta, të qarta dhe të lehta për t’u përditësuar." },
+        { title: "Aplikacione web", text: "Sisteme rezervimi, portale për klientë dhe aplikacione porosish, sipas mënyrës si punon biznesi juaj." },
+        { title: "Panele dhe mjete të brendshme", text: "Stoku, shitjet dhe oraret: numrat që ekipi juaj i shikon çdo ditë, në një vend." },
+        { title: "Kujdes pas lansimit", text: "Hosting, përditësime, kopje rezervë dhe rregullime, me një ekip që mund ta thërrisni." },
       ],
     },
     process: {
-      title: "Si shkon një projekt",
+      title: "Si punojmë",
       steps: [
-        { title: "Flasim", text: "Më tregoni çfarë ju duhet. Unë bëj shumë pyetje." },
-        { title: "Planifikoj", text: "Qëllim i qartë, çmim dhe afat para çdo rreshti kodi." },
-        { title: "Ndërtoj", text: "Çdo javë e shihni progresin dhe e provoni ndërsa rritet." },
-        { title: "Lansojmë", text: "E vendos live dhe mbetem pranë për ta mirëmbajtur." },
+        { title: "Flasim", text: "Na tregoni çfarë ju duhet. Ne bëjmë shumë pyetje." },
+        { title: "Planifikojmë", text: "Qëllim i qartë, çmim dhe afat para çdo rreshti kodi." },
+        { title: "Ndërtojmë", text: "Çdo javë e shihni progresin dhe e provoni ndërsa rritet." },
+        { title: "Lansojmë", text: "E vendosim live dhe mbetemi pranë për ta mirëmbajtur." },
       ],
     },
-    about: {
-      title: "Përshëndetje, jam Erblini",
+    studio: {
+      title: "Studio e vogël që mbetet me ju",
       body: [
-        "Jam zhvillues full-stack me bazë në Prishtinë. Më pëlqen të ndërtoj gjëra që ia lehtësojnë pak ditën e punës dikujt: një recepsionisti, një mjeku, një pronari dyqani.",
-        "Punoj në shqip, anglisht dhe italisht, dhe i marr projektet nga biseda e parë deri te serveri ku ato punojnë.",
+        `${company.name} është studio dizajni dhe zhvillimi në Prishtinë, e themeluar nga ${company.founder}, zhvillues full-stack.`,
+        "Ekipin e mbajmë të vogël qëllimisht. Flisni drejtpërdrejt me njerëzit që e dizajnojnë dhe e ndërtojnë projektin tuaj, në shqip, anglisht ose italisht.",
       ],
-      toolsLabel: "Mjetet që përdor çdo ditë",
-      tools: ["TypeScript", "React", "Next.js", "Node.js", "PostgreSQL", "Tailwind CSS", "Vercel"],
-      photoAlt: "Foto e Erblin Krasniqit",
+      reasons: [
+        { title: "Një ekip, nga fillimi në fund", text: "Dizajni, zhvillimi dhe hostingu nën një çati." },
+        { title: "E ndërtuar për të zgjatur", text: "Kod modern dhe i testuar, i lehtë për t’u zgjeruar." },
+        { title: "Pranë jush edhe pas lansimit", text: "E ngremë telefonin edhe pasi paguhet fatura." },
+      ],
+      toolsLabel: "Teknologjia që përdorim",
+      tools,
+      founderCaption: `${company.founder}, themelues`,
+      photoAlt: `Foto e ${company.founder}`,
     },
     contact: {
-      title: "Më tregoni për projektin tuaj",
-      text: "Mjafton një mesazh i shkurtër. Përgjigjem brenda një dite pune.",
-      email: "Më shkruani me email",
+      title: "Nisni një projekt",
+      text: "Na tregoni çfarë ju duhet. Përgjigjemi brenda një dite pune.",
+      typeLabel: "Çfarë ju duhet?",
+      types: ["Uebfaqe", "Aplikacion web", "Panel", "Ende s’jam i sigurt"],
+      name: "Emri juaj",
+      email: "Email-i juaj",
+      message: "Na tregoni për projektin",
+      submit: "Dërgo detajet e projektit",
+      note: "Kjo hap aplikacionin tuaj të email-it me gjithçka të plotësuar.",
+      subject: "Projekt i ri",
+      talk: "Preferoni të flisni?",
       whatsapp: "Shkruani në WhatsApp",
-      orCall: "Ose telefononi",
+      call: "Telefononi",
     },
-    footer: { made: "Dizajnuar dhe ndërtuar nga Erblin Krasniqi", top: "Kthehu lart" },
+    footer: { top: "Kthehu lart" },
     screens: {
       appName: "Portali i pacientit",
       booking: {
